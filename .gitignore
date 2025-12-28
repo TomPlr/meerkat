@@ -1,0 +1,36 @@
+# Dependencies
+node_modules
+
+# Build outputs
+dist
+build
+.output
+*.tsbuildinfo
+
+# Nuxt
+.nuxt
+.cache
+
+# Turbo
+.turbo
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+
+# Test coverage
+coverage
+
+# IDE / Editors
+.idea
+.vscode
+!.vscode/settings.json
+!.vscode/extensions.json
+.zed/
+
+# OS
+.DS_Store
