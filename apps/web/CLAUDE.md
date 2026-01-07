@@ -81,6 +81,63 @@ Create a `.env` file in `apps/web/`:
 NUXT_PUBLIC_REOWN_PROJECT_ID=your_project_id_from_cloud.reown.com
 ```
 
+## Code Search Tools
+
+### When to Use grep vs mgrep
+
+**Use grep (or ripgrep) for exact matches:**
+- **Symbol tracing** - Finding specific function/class/variable names
+- **Refactoring** - Renaming variables, updating imports
+- **Regex patterns** - Precise pattern matching
+- **Finding exact strings** - Literal text search
+
+**Use mgrep for intent-based semantic search:**
+- **Code exploration** - Understanding how features work ("where is error handling?")
+- **Feature discovery** - Finding implementations ("how is authentication done?")
+- **Onboarding** - Learning codebase structure and patterns
+- **Conceptual queries** - Natural language questions ("what handles user sessions?")
+
+> **Note**: mgrep uses semantic search powered by embeddings to understand code intent and context.
+> Learn more: [github.com/mixedbread-ai/mgrep](https://github.com/mixedbread-ai/mgrep)
+
+### Examples
+
+```bash
+# grep/ripgrep - Exact symbol/text matches
+grep "useUser" app/composables/              # Find exact function name
+grep "interface User" app/types/             # Find type definition
+grep -r "createSharedComposable"             # Check usage across files
+grep "walletAddress" --include="*.vue"       # Find in Vue files only
+
+# mgrep - Intent-based semantic search
+mgrep "authentication logic"                 # Explore auth implementation
+mgrep "error boundary handling"              # Discover error patterns
+mgrep "wallet connection flow"               # Understand Web3 integration
+mgrep "data fetching with caching"           # Find TanStack Query usage
+mgrep "composable state management"          # Discover state patterns
+mgrep "how are notifications displayed"      # Natural language queries
+
+# Combined workflow example
+# 1. Use mgrep to discover feature location
+mgrep "user menu dropdown implementation"    # → finds components/UserMenu.vue
+
+# 2. Use grep to find all usages
+grep -r "UserMenu" app/                      # → see where it's imported
+```
+
+### Best Practices
+
+1. **Start with mgrep** for exploration and understanding
+2. **Switch to grep** once you know the exact symbol/pattern
+3. **Use mgrep for:**
+   - "How does X work?"
+   - "Where is Y implemented?"
+   - "What handles Z?"
+4. **Use grep for:**
+   - Finding all usages of a function
+   - Refactoring symbol names
+   - Exact regex patterns
+
 ## Nuxt 4 Best Practices
 
 ### Auto-imports
@@ -98,19 +155,54 @@ NUXT_PUBLIC_REOWN_PROJECT_ID=your_project_id_from_cloud.reown.com
 
 **Standard pattern for ALL shared composables:**
 
+**See actual implementation:** `app/composables/useUser.ts`, `app/composables/useNotifications.ts`
+
 ```typescript
+// Real example from app/composables/useUser.ts
 import { createSharedComposable } from '@vueuse/core'
 
-const _useFeature = () => {
-  const state = ref(initialValue)
-  const computed = computed(() => /* ... */)
+export const useUser = createSharedComposable(() => {
+  const user = ref({
+    name: 'Guest User',
+    email: 'guest@example.com',
+    username: 'guest',
+    avatar: undefined as string | undefined,
+    bio: undefined as string | undefined,
+  })
 
-  function action() { /* ... */ }
+  const isAuthenticated = computed(() => user.value.email !== 'guest@example.com')
 
-  return { state, computed, action }
-}
+  const avatarProps = computed(() => ({
+    src: user.value.avatar,
+    alt: user.value.name,
+    fallback: user.value.name
+      .split(' ')
+      .map((n) => n[0])
+      .join(''),
+  }))
 
-export const useFeature = createSharedComposable(_useFeature)
+  function updateUser(updates: Partial<typeof user.value>) {
+    user.value = { ...user.value, ...updates }
+  }
+
+  function logout() {
+    user.value = {
+      name: 'Guest User',
+      email: 'guest@example.com',
+      username: 'guest',
+      avatar: undefined,
+      bio: undefined,
+    }
+  }
+
+  return {
+    user: readonly(user),
+    isAuthenticated,
+    avatarProps,
+    updateUser,
+    logout,
+  }
+})
 ```
 
 **Why `createSharedComposable`?**
@@ -119,10 +211,10 @@ export const useFeature = createSharedComposable(_useFeature)
 - Works seamlessly with Nuxt's auto-import
 
 **Current Composables:**
-- ✅ `useUser()` - User state and authentication
-- ✅ `useNotifications()` - Notification system
-- ✅ `useDashboard()` - Dashboard state & keyboard shortcuts
-- ✅ `useModels()` - AI model selection
+- ✅ `useUser()` - User state and authentication (app/composables/useUser.ts)
+- ✅ `useNotifications()` - Notification system (app/composables/useNotifications.ts)
+- ✅ `useDashboard()` - Dashboard state & keyboard shortcuts (app/composables/useDashboard.ts)
+- ✅ `useModels()` - AI model selection (app/composables/useModels.ts)
 - `useChats()` - Chat grouping (doesn't need shared state)
 
 ### Nuxt Plugins
@@ -447,13 +539,16 @@ Use TanStack Query for:
 
 ### 1. Shared Composables (Preferred for App State)
 
+**See actual implementation:** `app/composables/useNotifications.ts`
+
 ```typescript
+// Real example from app/composables/useNotifications.ts
 import { createSharedComposable } from '@vueuse/core'
 
 const _useNotifications = () => {
   const notifications = ref<Notification[]>([])
 
-  function addNotification(notification: Omit<Notification, 'id' | 'date'>) {
+  function add(notification: Omit<Notification, 'id' | 'date'>) {
     notifications.value.unshift({
       ...notification,
       id: crypto.randomUUID(),
@@ -461,7 +556,23 @@ const _useNotifications = () => {
     })
   }
 
-  return { notifications, addNotification }
+  function remove(id: string) {
+    const index = notifications.value.findIndex((n) => n.id === id)
+    if (index !== -1) {
+      notifications.value.splice(index, 1)
+    }
+  }
+
+  function clear() {
+    notifications.value = []
+  }
+
+  return {
+    notifications: readonly(notifications),
+    add,
+    remove,
+    clear,
+  }
 }
 
 export const useNotifications = createSharedComposable(_useNotifications)
@@ -612,6 +723,751 @@ Dashboard shortcuts (defined in `useDashboard.ts`):
 - `g-s` - Go to settings
 - `n` - Toggle notifications slideover
 
+## Vue 3 & Nuxt 4 Best Practices
+
+### Composition API Best Practices
+
+```vue
+<!-- ✅ GOOD: Use <script setup> with proper TypeScript -->
+<script setup lang="ts">
+import type { User } from '~/types'
+
+// Props with TypeScript
+interface Props {
+  user: User
+  isActive?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  isActive: true
+})
+
+// Emits with TypeScript
+interface Emits {
+  (e: 'update', value: string): void
+  (e: 'delete', id: string): void
+}
+
+const emit = defineEmits<Emits>()
+
+// Composables (destructure what you need)
+const { user: currentUser, logout } = useUser()
+
+// Computed values (cached, reactive)
+const fullName = computed(() => `${props.user.firstName} ${props.user.lastName}`)
+
+// Methods
+function handleUpdate(value: string) {
+  emit('update', value)
+}
+</script>
+
+<!-- ❌ BAD: Options API, no TypeScript -->
+<script>
+export default {
+  props: ['user', 'isActive'], // ❌ No types
+  data() { // ❌ Options API
+    return {
+      localState: null
+    }
+  },
+  methods: {
+    handleClick() {
+      this.$emit('update') // ❌ No type safety
+    }
+  }
+}
+</script>
+```
+
+### Reactivity Best Practices
+
+```typescript
+// ✅ GOOD: Use ref for primitives, reactive for objects
+const count = ref(0)
+const user = reactive({ name: 'Alice', age: 30 })
+
+// ✅ GOOD: Use computed for derived state
+const doubleCount = computed(() => count.value * 2)
+
+// ❌ BAD: Destructuring reactive objects loses reactivity
+const { name, age } = user // ❌ Not reactive anymore
+
+// ✅ GOOD: Use toRefs or keep object reference
+const { name, age } = toRefs(user) // ✅ Reactive
+// Or access properties: user.name, user.age ✅
+
+// ✅ GOOD: Use readonly to prevent mutations
+const state = readonly(reactive({ count: 0 }))
+
+// ❌ BAD: Watch without proper dependencies
+watch(() => {
+  console.log(user.name) // ❌ Implicit dependency
+})
+
+// ✅ GOOD: Explicit watch source
+watch(() => user.name, (newName) => {
+  console.log('Name changed:', newName)
+})
+
+// ✅ GOOD: Watch multiple sources
+watch([() => user.name, () => user.age], ([name, age]) => {
+  console.log(`${name} is ${age} years old`)
+})
+```
+
+### Component Design
+
+```vue
+<!-- ✅ GOOD: Single Responsibility, clear props/emits -->
+<script setup lang="ts">
+interface Props {
+  balance: bigint
+  symbol: string
+  decimals: number
+}
+
+const props = defineProps<Props>()
+
+// Format balance (computed, cached)
+const formattedBalance = computed(() => {
+  return formatUnits(props.balance, props.decimals)
+})
+</script>
+
+<template>
+  <div class="balance-card">
+    <span class="amount">{{ formattedBalance }}</span>
+    <span class="symbol">{{ symbol }}</span>
+  </div>
+</template>
+
+<!-- ❌ BAD: Component does too much -->
+<script setup>
+const { data: balance } = useBalance() // ❌ Fetching
+const { disconnect } = useDisconnect() // ❌ Auth logic
+const router = useRouter() // ❌ Navigation
+
+function complexBusinessLogic() { /* ❌ Business logic */ }
+</script>
+```
+
+### Async Component Loading
+
+```typescript
+// ✅ GOOD: Lazy load heavy components
+const HeavyChart = defineAsyncComponent(() =>
+  import('~/components/HeavyChart.vue')
+)
+
+// ✅ GOOD: With loading state
+const HeavyChart = defineAsyncComponent({
+  loader: () => import('~/components/HeavyChart.vue'),
+  loadingComponent: LoadingSpinner,
+  delay: 200,
+  timeout: 3000
+})
+
+// ❌ BAD: Import everything upfront
+import HeavyChart from '~/components/HeavyChart.vue' // ❌ Always loaded
+import AnotherHeavy from '~/components/AnotherHeavy.vue' // ❌
+```
+
+## Nuxt 4 Specific Best Practices
+
+### File-Based Routing
+
+```
+pages/
+├── index.vue                    → /
+├── portfolio.vue                → /portfolio
+├── portfolio/
+│   ├── [id].vue                → /portfolio/:id
+│   └── analytics.vue            → /portfolio/analytics
+├── settings/
+│   ├── index.vue               → /settings
+│   ├── profile.vue             → /settings/profile
+│   └── security.vue            → /settings/security
+└── [...slug].vue               → Catch-all route
+```
+
+```vue
+<!-- ✅ GOOD: Use dynamic routes with typed params -->
+<script setup lang="ts">
+// pages/portfolio/[id].vue
+const route = useRoute('portfolio-id') // Type-safe route
+
+// Access params (automatically typed)
+const portfolioId = route.params.id
+</script>
+
+<!-- ✅ GOOD: Navigate programmatically -->
+<script setup>
+const router = useRouter()
+
+function goToPortfolio(id: string) {
+  router.push(`/portfolio/${id}`)
+  // Or with route object:
+  // router.push({ name: 'portfolio-id', params: { id } })
+}
+</script>
+```
+
+### Nuxt Plugins Best Practices
+
+```typescript
+// ✅ GOOD: Type-safe plugin with client-only code
+// plugins/appkit.client.ts
+export default defineNuxtPlugin({
+  name: 'appkit',
+  enforce: 'pre', // Run before other plugins
+  setup(nuxtApp) {
+    // Only runs on client
+    const config = useRuntimeConfig()
+    const wagmiAdapter = createWagmiAdapter(config.public.reownProjectId)
+
+    const appKit = createAppKit({
+      adapters: [wagmiAdapter],
+      networks,
+      projectId: config.public.reownProjectId,
+      metadata: { /* ... */ }
+    })
+
+    // Provide to components
+    return {
+      provide: {
+        appKit
+      }
+    }
+  }
+})
+
+// Usage in components:
+const { $appKit } = useNuxtApp()
+
+// ❌ BAD: No .client suffix for browser-only code
+// plugins/appkit.ts → Will fail on SSR
+```
+
+### Server vs Client Code
+
+```typescript
+// ✅ GOOD: Use .client.ts for browser-only
+// composables/useLocalStorage.client.ts
+export const useLocalStorage = () => {
+  const store = (key: string, value: any) => {
+    localStorage.setItem(key, JSON.stringify(value))
+  }
+  return { store }
+}
+
+// ✅ GOOD: Check for browser environment
+const isBrowser = process.client
+if (isBrowser) {
+  localStorage.setItem('key', 'value')
+}
+
+// ❌ BAD: Use browser APIs without checks
+localStorage.setItem('key', 'value') // ❌ Fails on SSR
+window.ethereum // ❌ Fails on SSR
+```
+
+### Runtime Config
+
+```typescript
+// ✅ GOOD: Define runtime config in nuxt.config.ts
+export default defineNuxtConfig({
+  runtimeConfig: {
+    // Private (server-only)
+    apiSecret: '',
+
+    // Public (exposed to client)
+    public: {
+      reownProjectId: '',
+      apiBaseUrl: ''
+    }
+  }
+})
+
+// Usage:
+const config = useRuntimeConfig()
+const projectId = config.public.reownProjectId
+
+// ❌ BAD: Hardcode sensitive values
+const API_KEY = 'sk_live_...' // ❌ Exposed in bundle
+```
+
+### Auto-imports Configuration
+
+```typescript
+// ✅ GOOD: Leverage auto-imports for common patterns
+// No imports needed for:
+// - Vue: ref, computed, watch, onMounted, etc.
+// - Nuxt: useRoute, useRouter, navigateTo, etc.
+// - Components from app/components/
+
+// ✅ GOOD: Explicit import for specific utilities
+import { createSharedComposable } from '@vueuse/core'
+import type { User } from '~/types'
+
+// ❌ BAD: Import auto-imported items
+import { ref, computed } from 'vue' // ❌ Redundant
+import { useRoute } from 'nuxt/app' // ❌ Auto-imported
+```
+
+## Web3 & Blockchain Best Practices
+
+### Wallet Connection
+
+```typescript
+// ✅ GOOD: Use Reown AppKit composables
+import { useAppKit, useAppKitAccount, useAppKitState } from '@reown/appkit/vue'
+
+const { open } = useAppKit()
+const account = useAppKitAccount()
+const state = useAppKitState()
+
+const isConnected = computed(() => account.value.isConnected)
+const address = computed(() => account.value.address)
+const chainId = computed(() => account.value.chainId)
+
+// Open modal
+function connect() {
+  open() // AppKit handles connection flow
+}
+
+// ❌ BAD: Manual wallet connection
+window.ethereum.request({ method: 'eth_requestAccounts' }) // ❌ No UI, errors
+```
+
+### Wagmi Hooks Best Practices
+
+```typescript
+// ✅ GOOD: Use Wagmi Vue composables
+import { useAccount, useBalance, useReadContract } from '@wagmi/vue'
+
+// Get account info
+const { address, isConnected, chainId } = useAccount()
+
+// Get balance (auto-refetches)
+const { data: balance, isLoading } = useBalance({
+  address: address.value
+})
+
+// Read contract
+const { data: tokenBalance } = useReadContract({
+  address: '0x...',
+  abi: ERC20_ABI,
+  functionName: 'balanceOf',
+  args: [address.value]
+})
+
+// ✅ GOOD: Watch for changes
+watch(address, (newAddress) => {
+  if (newAddress) {
+    console.log('Wallet connected:', newAddress)
+  }
+})
+
+// ❌ BAD: Poll for updates manually
+setInterval(async () => { // ❌ Inefficient
+  const balance = await fetchBalance(address)
+}, 1000)
+```
+
+### Contract Interactions
+
+```typescript
+// ✅ GOOD: Use viem for type-safe contract calls
+import { useWriteContract, useWaitForTransactionReceipt } from '@wagmi/vue'
+import { parseEther } from 'viem'
+
+const { writeContract, data: hash } = useWriteContract()
+
+async function depositCollateral(amount: string) {
+  try {
+    await writeContract({
+      address: AAVE_POOL_ADDRESS,
+      abi: AAVE_POOL_ABI,
+      functionName: 'deposit',
+      args: [
+        TOKEN_ADDRESS,
+        parseEther(amount),
+        address.value,
+        0
+      ]
+    })
+  } catch (error) {
+    console.error('Transaction failed:', error)
+  }
+}
+
+// Wait for confirmation
+const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({
+  hash
+})
+
+// ❌ BAD: Raw web3.js with no types
+const contract = new web3.eth.Contract(ABI, ADDRESS)
+await contract.methods.deposit(amount).send({ from: address }) // ❌ No types
+```
+
+### Chain Switching
+
+```typescript
+// ✅ GOOD: Use AppKit for chain switching
+import { useAppKitState } from '@reown/appkit/vue'
+import { useSwitchChain } from '@wagmi/vue'
+
+const { selectedNetworkId } = useAppKitState()
+const { switchChain } = useSwitchChain()
+
+async function switchToArbitrum() {
+  try {
+    await switchChain({ chainId: 42161 })
+  } catch (error) {
+    console.error('Failed to switch chain:', error)
+  }
+}
+
+// Check current chain
+watch(selectedNetworkId, (chainId) => {
+  console.log('Switched to chain:', chainId)
+})
+
+// ❌ BAD: Manual chain switching
+await window.ethereum.request({
+  method: 'wallet_switchEthereumChain',
+  params: [{ chainId: '0xa4b1' }]
+}) // ❌ No error handling, hex conversion
+```
+
+### Error Handling
+
+```typescript
+// ✅ GOOD: Handle Web3 errors properly
+import { type BaseError, UserRejectedRequestError } from 'wagmi'
+
+try {
+  await writeContract({ /* ... */ })
+} catch (error) {
+  if (error instanceof UserRejectedRequestError) {
+    console.log('User rejected transaction')
+    return
+  }
+
+  if (error instanceof BaseError) {
+    const revertError = error.walk((e) => e instanceof ContractFunctionRevertedError)
+    if (revertError) {
+      console.error('Contract reverted:', revertError.reason)
+    }
+  }
+
+  console.error('Transaction failed:', error)
+}
+
+// ❌ BAD: Generic error handling
+try {
+  await writeContract({ /* ... */ })
+} catch (error) {
+  alert('Error!') // ❌ No context
+}
+```
+
+## TanStack Query Best Practices
+
+### Query Configuration
+
+```typescript
+// ✅ GOOD: Configure query with proper options
+import { useQuery } from '@tanstack/vue-query'
+
+const { data, isLoading, error, refetch } = useQuery({
+  queryKey: ['portfolio', address], // Unique key
+  queryFn: () => fetchPortfolio(address.value),
+  staleTime: 5 * 60 * 1000, // 5 minutes
+  gcTime: 10 * 60 * 1000, // 10 minutes
+  enabled: computed(() => !!address.value), // Only fetch when address exists
+  retry: 1,
+  refetchOnWindowFocus: false
+})
+
+// ✅ GOOD: Dependent queries
+const { data: user } = useQuery({
+  queryKey: ['user'],
+  queryFn: fetchUser
+})
+
+const { data: positions } = useQuery({
+  queryKey: ['positions', user.value?.id],
+  queryFn: () => fetchPositions(user.value!.id),
+  enabled: computed(() => !!user.value?.id) // Wait for user
+})
+
+// ❌ BAD: No query key or stale time
+const { data } = useQuery({
+  queryFn: fetchData // ❌ No cache key, no config
+})
+```
+
+### Mutations
+
+```typescript
+// ✅ GOOD: Mutations with optimistic updates
+import { useMutation, useQueryClient } from '@tanstack/vue-query'
+
+const queryClient = useQueryClient()
+
+const { mutate: updatePosition } = useMutation({
+  mutationFn: (data: PositionUpdate) => api.updatePosition(data),
+  onMutate: async (newData) => {
+    // Cancel outgoing refetches
+    await queryClient.cancelQueries({ queryKey: ['position', newData.id] })
+
+    // Snapshot previous value
+    const previous = queryClient.getQueryData(['position', newData.id])
+
+    // Optimistically update
+    queryClient.setQueryData(['position', newData.id], newData)
+
+    return { previous }
+  },
+  onError: (error, variables, context) => {
+    // Rollback on error
+    queryClient.setQueryData(['position', variables.id], context?.previous)
+  },
+  onSettled: (data, error, variables) => {
+    // Refetch after success or error
+    queryClient.invalidateQueries({ queryKey: ['position', variables.id] })
+  }
+})
+
+// ❌ BAD: No optimistic updates, no error handling
+const { mutate } = useMutation({
+  mutationFn: updatePosition
+})
+```
+
+### Infinite Queries
+
+```typescript
+// ✅ GOOD: Paginated data with infinite scroll
+import { useInfiniteQuery } from '@tanstack/vue-query'
+
+const {
+  data,
+  fetchNextPage,
+  hasNextPage,
+  isFetchingNextPage
+} = useInfiniteQuery({
+  queryKey: ['transactions', address],
+  queryFn: ({ pageParam = 0 }) =>
+    fetchTransactions(address.value, pageParam),
+  getNextPageParam: (lastPage) => lastPage.nextCursor,
+  initialPageParam: 0
+})
+
+// Load more button
+<UButton
+  @click="fetchNextPage"
+  :loading="isFetchingNextPage"
+  :disabled="!hasNextPage"
+>
+  Load More
+</UButton>
+```
+
+## State Management Best Practices
+
+### Composables Pattern
+
+**See actual implementations:** `app/composables/useNotifications.ts`, `app/composables/useUser.ts`, `app/composables/useDashboard.ts`
+
+```typescript
+// ✅ GOOD: Shared composable with createSharedComposable (from app/composables/useNotifications.ts)
+import { createSharedComposable } from '@vueuse/core'
+
+const _useNotifications = () => {
+  const notifications = ref<Notification[]>([])
+
+  function add(notification: Omit<Notification, 'id' | 'date'>) {
+    notifications.value.unshift({
+      ...notification,
+      id: crypto.randomUUID(),
+      date: new Date().toISOString()
+    })
+  }
+
+  function remove(id: string) {
+    const index = notifications.value.findIndex(n => n.id === id)
+    if (index !== -1) {
+      notifications.value.splice(index, 1)
+    }
+  }
+
+  function clear() {
+    notifications.value = []
+  }
+
+  return {
+    notifications: readonly(notifications), // Expose as readonly
+    add,
+    remove,
+    clear
+  }
+}
+
+export const useNotifications = createSharedComposable(_useNotifications)
+
+// ✅ GOOD: Dashboard composable with keyboard shortcuts (from app/composables/useDashboard.ts)
+export const useDashboard = createSharedComposable(() => {
+  const isNotificationsSideoverOpen = ref(false)
+
+  function toggleNotificationsSlideover() {
+    isNotificationsSideoverOpen.value = !isNotificationsSideoverOpen.value
+  }
+
+  // Real keyboard shortcuts from the codebase
+  const shortcuts = [
+    {
+      keys: ['g', 'h'],
+      action: () => navigateTo('/'),
+      label: 'Go to home',
+    },
+    {
+      keys: ['g', 'c'],
+      action: () => navigateTo('/chat'),
+      label: 'Go to chat',
+    },
+    {
+      keys: ['g', 's'],
+      action: () => navigateTo('/settings'),
+      label: 'Go to settings',
+    },
+    {
+      keys: ['n'],
+      action: toggleNotificationsSlideover,
+      label: 'Toggle notifications',
+    },
+  ]
+
+  return {
+    isNotificationsSideoverOpen,
+    toggleNotificationsSlideover,
+    shortcuts,
+  }
+})
+
+// ❌ BAD: No createSharedComposable
+export const useNotifications = () => {
+  const notifications = ref<Notification[]>([]) // ❌ New instance per call
+  // ...
+}
+```
+
+### Cookie Storage
+
+```typescript
+// ✅ GOOD: Use useCookie for persistence
+const theme = useCookie<'light' | 'dark'>('theme', {
+  default: () => 'dark',
+  maxAge: 60 * 60 * 24 * 365, // 1 year
+  sameSite: 'lax'
+})
+
+// Auto-synced across tabs
+theme.value = 'light'
+
+// ❌ BAD: Manual localStorage
+localStorage.setItem('theme', 'light') // ❌ Not SSR-safe
+```
+
+### VueUse Utilities
+
+```typescript
+// ✅ GOOD: Use VueUse for common patterns
+import { useClipboard, useLocalStorage, useColorMode } from '@vueuse/core'
+
+// Clipboard
+const { copy, copied, isSupported } = useClipboard()
+copy('0x123...')
+
+// Color mode
+const mode = useColorMode({
+  attribute: 'class',
+  modes: { light: 'light', dark: 'dark' }
+})
+
+// Local storage with reactivity
+const settings = useLocalStorage('settings', {
+  notifications: true,
+  soundEnabled: false
+})
+```
+
+## Performance Optimization
+
+### Component Memoization
+
+```vue
+<!-- ✅ GOOD: Use v-memo for expensive lists -->
+<template>
+  <div
+    v-for="item in items"
+    :key="item.id"
+    v-memo="[item.id, item.status]"
+  >
+    <!-- Only re-renders if id or status changes -->
+    <ExpensiveComponent :item="item" />
+  </div>
+</template>
+
+<!-- ✅ GOOD: Use v-once for static content -->
+<div v-once>
+  <h1>{{ staticTitle }}</h1>
+  <p>This content never changes</p>
+</div>
+```
+
+### Lazy Hydration
+
+```vue
+<!-- ✅ GOOD: Lazy hydrate heavy components -->
+<script setup>
+import { LazyChart } from '#components'
+</script>
+
+<template>
+  <ClientOnly>
+    <LazyChart :data="chartData" />
+    <template #fallback>
+      <div>Loading chart...</div>
+    </template>
+  </ClientOnly>
+</template>
+```
+
+### Debouncing & Throttling
+
+```typescript
+// ✅ GOOD: Use VueUse for debouncing
+import { useDebounceFn, useThrottleFn } from '@vueuse/core'
+
+const searchTerm = ref('')
+
+// Debounce search
+const debouncedSearch = useDebounceFn((value: string) => {
+  performSearch(value)
+}, 300)
+
+watch(searchTerm, debouncedSearch)
+
+// Throttle scroll handler
+const handleScroll = useThrottleFn(() => {
+  console.log('Scrolling...')
+}, 100)
+```
+
 ## Troubleshooting
 
 ### Common Issues
@@ -635,17 +1491,113 @@ Dashboard shortcuts (defined in `useDashboard.ts`):
 - ✅ Check imports use `type` keyword when needed
 - ✅ Ensure types are exported from `~/types`
 
-## Migration Notes
+**Issue**: Hydration mismatch
+- ✅ Ensure server and client render same HTML initially
+- ✅ Use `<ClientOnly>` for browser-only components
+- ✅ Don't use `Date.now()` or `Math.random()` in template during SSR
+- ✅ Check for browser APIs used during SSR
 
-### Recent Code Quality Improvements
+**Issue**: Query not refetching
+- ✅ Check `staleTime` configuration
+- ✅ Verify `enabled` condition is true
+- ✅ Use `refetch()` or `invalidateQueries()` manually
+- ✅ Check if query key changes when it should
 
-1. **Removed duplicate type definitions** - `Notification` and `User` types removed from `types/index.d.ts` (defined in composables)
-2. **Fixed composable patterns** - All shared composables now use `createSharedComposable` consistently
-3. **Improved CSS theme config** - Separated `@theme` (custom) from `@theme static` (overrides)
-4. **Cleaned up placeholder URLs** - Removed/commented placeholder GitHub links
-5. **Enhanced Vue Query config** - Added sensible defaults for caching and retries
-6. **Removed workarounds** - Cleaned up 'old-neutral' chip display workaround
+## Common Anti-Patterns
 
-### Breaking Changes from Cleanup
+### 1. Reactive Destruction
 
-None - all changes are backward compatible improvements.
+```typescript
+// ❌ BAD: Destructuring reactive object
+const user = reactive({ name: 'Alice', age: 30 })
+const { name } = user // ❌ Not reactive
+
+// ✅ GOOD: Use toRefs or keep reference
+const { name } = toRefs(user) // ✅ Reactive
+// Or: user.name ✅
+```
+
+### 2. Watch Overuse
+
+```typescript
+// ❌ BAD: Watch for derived state
+const count = ref(0)
+const doubled = ref(0)
+
+watch(count, (newCount) => {
+  doubled.value = newCount * 2 // ❌ Use computed instead
+})
+
+// ✅ GOOD: Use computed
+const doubled = computed(() => count.value * 2)
+```
+
+### 3. Props Mutation
+
+```vue
+<script setup>
+const props = defineProps<{ count: number }>()
+
+// ❌ BAD: Mutate props
+props.count++ // ❌ Never mutate props
+
+// ✅ GOOD: Emit event or use local copy
+const emit = defineEmits<{ (e: 'update', value: number): void }>()
+emit('update', props.count + 1)
+</script>
+```
+
+### 4. Inline Functions in Templates
+
+```vue
+<!-- ❌ BAD: Inline function creates new instance on every render -->
+<template>
+  <UButton @click="() => handleClick(item.id)">
+    Click
+  </UButton>
+</template>
+
+<!-- ✅ GOOD: Use method or computed -->
+<script setup>
+function handleItemClick(id: string) {
+  handleClick(id)
+}
+</script>
+
+<template>
+  <UButton @click="() => handleItemClick(item.id)">
+    Click
+  </UButton>
+</template>
+```
+
+## Resources
+
+### Official Documentation
+- [Vue 3 Docs](https://vuejs.org/)
+- [Nuxt 4 Docs](https://nuxt.com/)
+- [Composition API RFC](https://vuejs.org/guide/extras/composition-api-faq.html)
+- [@nuxt/ui Documentation](https://ui.nuxt.com/)
+- [Tailwind CSS v4](https://tailwindcss.com/docs)
+
+### Web3 Documentation
+- [Reown AppKit](https://docs.reown.com/appkit/overview)
+- [Wagmi Vue](https://wagmi.sh/vue/getting-started)
+- [viem Documentation](https://viem.sh/)
+- [TanStack Query](https://tanstack.com/query/latest/docs/framework/vue/overview)
+
+### VueUse
+- [VueUse Documentation](https://vueuse.org/)
+- [VueUse Functions](https://vueuse.org/functions.html)
+
+### TypeScript
+- [Vue TypeScript Guide](https://vuejs.org/guide/typescript/overview.html)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
+
+### Performance
+- [Vue Performance Guide](https://vuejs.org/guide/best-practices/performance.html)
+- [Nuxt Performance](https://nuxt.com/docs/guide/concepts/rendering#performance)
+
+---
+
+*Keep this document updated as patterns evolve and new best practices emerge.*

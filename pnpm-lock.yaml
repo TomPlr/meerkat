@@ -37,7 +37,7 @@ importers:
     dependencies:
       '@adonisjs/auth':
         specifier: ^9.4.0
-        version: 9.5.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))(@adonisjs/lucid@21.8.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))(@vinejs/vine@3.0.1)(luxon@3.7.2))(@japa/api-client@3.1.1(@japa/assert@4.2.0(@japa/runner@4.4.0))(@japa/runner@4.4.0))(@japa/plugin-adonisjs@4.0.0(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))(@japa/api-client@3.1.1(@japa/assert@4.2.0(@japa/runner@4.4.0))(@japa/runner@4.4.0))(@japa/runner@4.4.0))
+        version: 9.5.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))(@adonisjs/lucid@21.8.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))(@vinejs/vine@3.0.1)(luxon@3.7.2)(pg@8.16.3))(@japa/api-client@3.1.1(@japa/assert@4.2.0(@japa/runner@4.4.0))(@japa/runner@4.4.0))(@japa/plugin-adonisjs@4.0.0(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))(@japa/api-client@3.1.1(@japa/assert@4.2.0(@japa/runner@4.4.0))(@japa/runner@4.4.0))(@japa/runner@4.4.0))
       '@adonisjs/core':
         specifier: ^6.18.0
         version: 6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1)
@@ -46,10 +46,16 @@ importers:
         version: 2.2.1(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))
       '@adonisjs/lucid':
         specifier: ^21.6.1
-        version: 21.8.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))(@vinejs/vine@3.0.1)(luxon@3.7.2)
+        version: 21.8.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))(@vinejs/vine@3.0.1)(luxon@3.7.2)(pg@8.16.3)
       '@vinejs/vine':
         specifier: ^3.0.1
         version: 3.0.1
+      luxon:
+        specifier: ^3.7.2
+        version: 3.7.2
+      pg:
+        specifier: ^8.16.3
+        version: 8.16.3
       reflect-metadata:
         specifier: ^0.2.2
         version: 0.2.2
@@ -81,6 +87,9 @@ importers:
       '@swc/core':
         specifier: 1.11.24
         version: 1.11.24(@swc/helpers@0.5.18)
+      '@types/luxon':
+        specifier: ^3.7.1
+        version: 3.7.1
       '@types/node':
         specifier: ^22.15.18
         version: 22.19.3
@@ -107,28 +116,28 @@ importers:
     dependencies:
       '@nuxt/ui':
         specifier: ^4.3.0
-        version: 4.3.0(1f12d7b45d87aab0e2d5d5654dd3166d)
+        version: 4.3.0(e2988fb383c512aa8ac3922ecfd50352)
       '@reown/appkit':
         specifier: ^1.8.15
-        version: 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)
+        version: 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)
       '@reown/appkit-adapter-wagmi':
         specifier: ^1.8.15
-        version: 1.8.15(4dd6aca3e26c93fc0ccd19bc4ca44932)
+        version: 1.8.15(46b25c57ee424b95d707756f3c629af8)
       '@tanstack/vue-query':
         specifier: ^5.92.5
         version: 5.92.5(vue@3.5.26(typescript@5.9.3))
       '@vueuse/nuxt':
         specifier: ^12.0.0
-        version: 12.8.2(magicast@0.5.1)(nuxt@4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2))(typescript@5.9.3)
+        version: 12.8.2(magicast@0.5.1)(nuxt@4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3))(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2))(typescript@5.9.3)
       '@wagmi/vue':
         specifier: ^0.4.6
-        version: 0.4.6(bf653179d2ed5df4545afad10602dcf5)
+        version: 0.4.6(ec3e60a1042a51c467429bbfe445fc35)
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
       nuxt:
         specifier: ^4.2.2
-        version: 4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2)
+        version: 4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3))(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2)
       viem:
         specifier: ^2.43.3
         version: 2.43.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
@@ -2729,6 +2738,9 @@ packages:
   '@types/linkify-it@5.0.0':
     resolution: {integrity: sha512-sVDA58zAw4eWAffKOaQH5/5j3XeayukzDk+ewSsnv3p4yJEZHCCzMDiZM8e0OUrRvmpGZ85jf4yDHkHsgBNr9Q==}
 
+  '@types/luxon@3.7.1':
+    resolution: {integrity: sha512-H3iskjFIAn5SlJU7OuxUmTEpebK6TKB8rxZShDslBMZJ5u9S//KM1sbdAisiSrqwLQncVjnpi2OK2J51h+4lsg==}
+
   '@types/markdown-it@14.1.2':
     resolution: {integrity: sha512-promo4eFwuiW+TfGxhi+0x3czqTYJkG8qB17ZUJiVF10Xm7NLVRSLUsfRTU/6h1e24VvRnXCx+hG7li58lkzog==}
 
@@ -2757,6 +2769,9 @@ packages:
   '@types/parse-path@7.1.0':
     resolution: {integrity: sha512-EULJ8LApcVEPbrfND0cRQqutIOdiIgJ1Mgrhpy755r14xMohPTEpkV/k28SJvuOs9bHRFW8x+KeDAEPiGQPB9Q==}
     deprecated: This is a stub types definition. parse-path provides its own type definitions, so you do not need this installed.
+
+  '@types/pg@8.16.0':
+    resolution: {integrity: sha512-RmhMd/wD+CF8Dfo+cVIy3RR5cl8CyfXQ0tGgW6XBL8L4LM/UTEbNXYRbLwU6w+CgrKBNbrQWt4FUtTfaU5jSYQ==}
 
   '@types/pluralize@0.0.33':
     resolution: {integrity: sha512-JOqsl+ZoCpP4e8TDke9W79FDcSgPAR0l6pixx2JHkhnRjvShyYiAYw2LVsnA7K08Y6DeOnaU6ujmENO4os/cYg==}
@@ -4131,6 +4146,98 @@ packages:
   dotenv@17.2.3:
     resolution: {integrity: sha512-JVUnt+DUIzu87TABbhPmNfVdBDt18BLOWjMUFJMSi/Qqg7NTYtabbvSNJGOJ7afbRuv9D/lngizHtP7QyLQ+9w==}
     engines: {node: '>=12'}
+
+  drizzle-orm@0.45.1:
+    resolution: {integrity: sha512-Te0FOdKIistGNPMq2jscdqngBRfBpC8uMFVwqjf6gtTVJHIQ/dosgV/CLBU2N4ZJBsXL5savCba9b0YJskKdcA==}
+    peerDependencies:
+      '@aws-sdk/client-rds-data': '>=3'
+      '@cloudflare/workers-types': '>=4'
+      '@electric-sql/pglite': '>=0.2.0'
+      '@libsql/client': '>=0.10.0'
+      '@libsql/client-wasm': '>=0.10.0'
+      '@neondatabase/serverless': '>=0.10.0'
+      '@op-engineering/op-sqlite': '>=2'
+      '@opentelemetry/api': ^1.4.1
+      '@planetscale/database': '>=1.13'
+      '@prisma/client': '*'
+      '@tidbcloud/serverless': '*'
+      '@types/better-sqlite3': '*'
+      '@types/pg': '*'
+      '@types/sql.js': '*'
+      '@upstash/redis': '>=1.34.7'
+      '@vercel/postgres': '>=0.8.0'
+      '@xata.io/client': '*'
+      better-sqlite3: '>=7'
+      bun-types: '*'
+      expo-sqlite: '>=14.0.0'
+      gel: '>=2'
+      knex: '*'
+      kysely: '*'
+      mysql2: '>=2'
+      pg: '>=8'
+      postgres: '>=3'
+      prisma: '*'
+      sql.js: '>=1'
+      sqlite3: '>=5'
+    peerDependenciesMeta:
+      '@aws-sdk/client-rds-data':
+        optional: true
+      '@cloudflare/workers-types':
+        optional: true
+      '@electric-sql/pglite':
+        optional: true
+      '@libsql/client':
+        optional: true
+      '@libsql/client-wasm':
+        optional: true
+      '@neondatabase/serverless':
+        optional: true
+      '@op-engineering/op-sqlite':
+        optional: true
+      '@opentelemetry/api':
+        optional: true
+      '@planetscale/database':
+        optional: true
+      '@prisma/client':
+        optional: true
+      '@tidbcloud/serverless':
+        optional: true
+      '@types/better-sqlite3':
+        optional: true
+      '@types/pg':
+        optional: true
+      '@types/sql.js':
+        optional: true
+      '@upstash/redis':
+        optional: true
+      '@vercel/postgres':
+        optional: true
+      '@xata.io/client':
+        optional: true
+      better-sqlite3:
+        optional: true
+      bun-types:
+        optional: true
+      expo-sqlite:
+        optional: true
+      gel:
+        optional: true
+      knex:
+        optional: true
+      kysely:
+        optional: true
+      mysql2:
+        optional: true
+      pg:
+        optional: true
+      postgres:
+        optional: true
+      prisma:
+        optional: true
+      sql.js:
+        optional: true
+      sqlite3:
+        optional: true
 
   dunder-proto@1.0.1:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
@@ -5959,8 +6066,42 @@ packages:
   perfect-debounce@2.0.0:
     resolution: {integrity: sha512-fkEH/OBiKrqqI/yIgjR92lMfs2K8105zt/VT6+7eTjNwisrsh47CeIED9z58zI7DfKdH3uHAn25ziRZn3kgAow==}
 
+  pg-cloudflare@1.2.7:
+    resolution: {integrity: sha512-YgCtzMH0ptvZJslLM1ffsY4EuGaU0cx4XSdXLRFae8bPP4dS5xL1tNB3k2o/N64cHJpwU7dxKli/nZ2lUa5fLg==}
+
   pg-connection-string@2.6.2:
     resolution: {integrity: sha512-ch6OwaeaPYcova4kKZ15sbJ2hKb/VP48ZD2gE7i1J+L4MspCtBMAx8nMgz7bksc7IojCIIWuEhHibSMFH8m8oA==}
+
+  pg-connection-string@2.9.1:
+    resolution: {integrity: sha512-nkc6NpDcvPVpZXxrreI/FOtX3XemeLl8E0qFr6F2Lrm/I8WOnaWNhIPK2Z7OHpw7gh5XJThi6j6ppgNoaT1w4w==}
+
+  pg-int8@1.0.1:
+    resolution: {integrity: sha512-WCtabS6t3c8SkpDBUlb1kjOs7l66xsGdKpIPZsg4wR+B3+u9UAum2odSsF9tnvxg80h4ZxLWMy4pRjOsFIqQpw==}
+    engines: {node: '>=4.0.0'}
+
+  pg-pool@3.10.1:
+    resolution: {integrity: sha512-Tu8jMlcX+9d8+QVzKIvM/uJtp07PKr82IUOYEphaWcoBhIYkoHpLXN3qO59nAI11ripznDsEzEv8nUxBVWajGg==}
+    peerDependencies:
+      pg: '>=8.0'
+
+  pg-protocol@1.10.3:
+    resolution: {integrity: sha512-6DIBgBQaTKDJyxnXaLiLR8wBpQQcGWuAESkRBX/t6OwA8YsqP+iVSiond2EDy6Y/dsGk8rh/jtax3js5NeV7JQ==}
+
+  pg-types@2.2.0:
+    resolution: {integrity: sha512-qTAAlrEsl8s4OiEQY69wDvcMIdQN6wdz5ojQiOy6YRMuynxenON0O5oCpJI6lshc6scgAY8qvJ2On/p+CXY0GA==}
+    engines: {node: '>=4'}
+
+  pg@8.16.3:
+    resolution: {integrity: sha512-enxc1h0jA/aq5oSDMvqyW3q89ra6XIIDZgCX9vkMrnz5DFTw/Ny3Li2lFQ+pt3L6MCgm/5o2o8HW9hiJji+xvw==}
+    engines: {node: '>= 16.0.0'}
+    peerDependencies:
+      pg-native: '>=3.0.1'
+    peerDependenciesMeta:
+      pg-native:
+        optional: true
+
+  pgpass@1.0.5:
+    resolution: {integrity: sha512-FdW9r/jQZhSeohs1Z3sI1yxFQNFvMcnmfuj4WBMUTxOrAyLMaTcE1aAMBiTlbMNaXvBCQuVi0R7hd8udDSP7ug==}
 
   picocolors@1.0.1:
     resolution: {integrity: sha512-anP1Z8qwhkbmu7MFP5iTt+wQKXgwzf7zTyGlcdzabySa9vd0Xt392U0rVmz9poOaBj0uHJKyyo9/upk0HrEQew==}
@@ -6187,6 +6328,22 @@ packages:
   postcss@8.5.6:
     resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
     engines: {node: ^10 || ^12 || >=14}
+
+  postgres-array@2.0.0:
+    resolution: {integrity: sha512-VpZrUqU5A69eQyW2c5CA1jtLecCsN2U/bD6VilrFDWq5+5UIEVO7nazS3TEcHf1zuPYO/sqGvUvW62g86RXZuA==}
+    engines: {node: '>=4'}
+
+  postgres-bytea@1.0.1:
+    resolution: {integrity: sha512-5+5HqXnsZPE65IJZSMkZtURARZelel2oXUEO8rH83VS/hxH5vv1uHquPg5wZs8yMAfdv971IU+kcPUczi7NVBQ==}
+    engines: {node: '>=0.10.0'}
+
+  postgres-date@1.0.7:
+    resolution: {integrity: sha512-suDmjLVQg78nMK2UZ454hAG+OAW+HQPZ6n++TNDUX+L0+uUlLywnoxJKDou51Zm+zTCjrCl0Nq6J9C5hP9vK/Q==}
+    engines: {node: '>=0.10.0'}
+
+  postgres-interval@1.2.0:
+    resolution: {integrity: sha512-9ZhXKM/rw350N1ovuWHbGxnGh/SNJ4cnxHiM0rxE4VN41wsg8P8zWn9hv/buK00RP4WvlOyr/RBDiptyxVbkZQ==}
+    engines: {node: '>=0.10.0'}
 
   preact@10.24.2:
     resolution: {integrity: sha512-1cSoF0aCC8uaARATfrlz4VCBqE8LwZwRfLgkxJOQwAlQt6ayTmi0D9OF7nXid1POI5SZidFuG9CnlXbDfLqY/Q==}
@@ -7645,6 +7802,10 @@ packages:
     resolution: {integrity: sha512-h3Fbisa2nKGPxCpm89Hk33lBLsnaGBvctQopaBSOW/uIs6FTe1ATyAnKFJrzVs9vpGdsTe73WF3V4lIsk4Gacw==}
     engines: {node: '>=18'}
 
+  xtend@4.0.2:
+    resolution: {integrity: sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==}
+    engines: {node: '>=0.4'}
+
   y-protocols@1.0.7:
     resolution: {integrity: sha512-YSVsLoXxO67J6eE/nV4AtFtT3QEotZf5sK5BHxFBXso7VDUT3Tx07IfA6hsu5Q5OmBdMkQVmFZ9QOA7fikWvnw==}
     engines: {node: '>=16.0.0', npm: '>=8.0.0'}
@@ -7810,14 +7971,14 @@ snapshots:
     transitivePeerDependencies:
       - babel-plugin-macros
 
-  '@adonisjs/auth@9.5.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))(@adonisjs/lucid@21.8.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))(@vinejs/vine@3.0.1)(luxon@3.7.2))(@japa/api-client@3.1.1(@japa/assert@4.2.0(@japa/runner@4.4.0))(@japa/runner@4.4.0))(@japa/plugin-adonisjs@4.0.0(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))(@japa/api-client@3.1.1(@japa/assert@4.2.0(@japa/runner@4.4.0))(@japa/runner@4.4.0))(@japa/runner@4.4.0))':
+  '@adonisjs/auth@9.5.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))(@adonisjs/lucid@21.8.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))(@vinejs/vine@3.0.1)(luxon@3.7.2)(pg@8.16.3))(@japa/api-client@3.1.1(@japa/assert@4.2.0(@japa/runner@4.4.0))(@japa/runner@4.4.0))(@japa/plugin-adonisjs@4.0.0(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))(@japa/api-client@3.1.1(@japa/assert@4.2.0(@japa/runner@4.4.0))(@japa/runner@4.4.0))(@japa/runner@4.4.0))':
     dependencies:
       '@adonisjs/core': 6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1)
       '@adonisjs/presets': 2.6.4(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))
       '@poppinss/utils': 6.10.1
       basic-auth: 2.0.1
     optionalDependencies:
-      '@adonisjs/lucid': 21.8.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))(@vinejs/vine@3.0.1)(luxon@3.7.2)
+      '@adonisjs/lucid': 21.8.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))(@vinejs/vine@3.0.1)(luxon@3.7.2)(pg@8.16.3)
       '@japa/api-client': 3.1.1(@japa/assert@4.2.0(@japa/runner@4.4.0))(@japa/runner@4.4.0)
       '@japa/plugin-adonisjs': 4.0.0(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))(@japa/api-client@3.1.1(@japa/assert@4.2.0(@japa/runner@4.4.0))(@japa/runner@4.4.0))(@japa/runner@4.4.0)
     transitivePeerDependencies:
@@ -7978,7 +8139,7 @@ snapshots:
       abstract-logging: 2.0.1
       pino: 10.1.0
 
-  '@adonisjs/lucid@21.8.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))(@vinejs/vine@3.0.1)(luxon@3.7.2)':
+  '@adonisjs/lucid@21.8.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))(@vinejs/vine@3.0.1)(luxon@3.7.2)(pg@8.16.3)':
     dependencies:
       '@adonisjs/core': 6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1)
       '@adonisjs/presets': 2.6.4(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@adonisjs/core@6.19.1(@adonisjs/assembler@7.8.2(typescript@5.8.3))(@vinejs/vine@3.0.1))
@@ -7989,8 +8150,8 @@ snapshots:
       fast-deep-equal: 3.1.3
       igniculus: 1.5.0
       kleur: 4.1.5
-      knex: 3.1.0
-      knex-dynamic-connection: 3.2.0
+      knex: 3.1.0(pg@8.16.3)
+      knex-dynamic-connection: 3.2.0(pg@8.16.3)
       pretty-hrtime: 1.0.3
       qs: 6.14.0
       slash: 5.1.0
@@ -8907,7 +9068,7 @@ snapshots:
       - utf-8-validate
       - vue
 
-  '@nuxt/fonts@0.12.1(db0@0.3.4)(idb-keyval@6.2.2)(ioredis@5.8.2)(magicast@0.5.1)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))':
+  '@nuxt/fonts@0.12.1(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(idb-keyval@6.2.2)(ioredis@5.8.2)(magicast@0.5.1)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))':
     dependencies:
       '@nuxt/devtools-kit': 3.1.1(magicast@0.5.1)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))
       '@nuxt/kit': 4.2.2(magicast@0.5.1)
@@ -8916,7 +9077,7 @@ snapshots:
       defu: 6.1.4
       esbuild: 0.25.12
       fontaine: 0.7.0
-      fontless: 0.1.0(db0@0.3.4)(idb-keyval@6.2.2)(ioredis@5.8.2)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))
+      fontless: 0.1.0(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(idb-keyval@6.2.2)(ioredis@5.8.2)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))
       h3: 1.15.4
       jiti: 2.6.1
       magic-regexp: 0.10.0
@@ -8929,7 +9090,7 @@ snapshots:
       ufo: 1.6.1
       unifont: 0.6.0
       unplugin: 2.3.11
-      unstorage: 1.17.3(db0@0.3.4)(idb-keyval@6.2.2)(ioredis@5.8.2)
+      unstorage: 1.17.3(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(idb-keyval@6.2.2)(ioredis@5.8.2)
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -9025,7 +9186,7 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  '@nuxt/nitro-server@4.2.2(db0@0.3.4)(idb-keyval@6.2.2)(ioredis@5.8.2)(magicast@0.5.1)(nuxt@4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2))(typescript@5.9.3)':
+  '@nuxt/nitro-server@4.2.2(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3))(idb-keyval@6.2.2)(ioredis@5.8.2)(magicast@0.5.1)(nuxt@4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3))(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2))(typescript@5.9.3)':
     dependencies:
       '@nuxt/devalue': 2.0.2
       '@nuxt/kit': 4.2.2(magicast@0.5.1)
@@ -9042,15 +9203,15 @@ snapshots:
       impound: 1.0.0
       klona: 2.0.6
       mocked-exports: 0.1.1
-      nitropack: 2.12.9(idb-keyval@6.2.2)
-      nuxt: 4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2)
+      nitropack: 2.12.9(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3))(idb-keyval@6.2.2)
+      nuxt: 4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3))(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2)
       pathe: 2.0.3
       pkg-types: 2.3.0
       radix3: 1.1.2
       std-env: 3.10.0
       ufo: 1.6.1
       unctx: 2.5.0
-      unstorage: 1.17.3(db0@0.3.4)(idb-keyval@6.2.2)(ioredis@5.8.2)
+      unstorage: 1.17.3(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(idb-keyval@6.2.2)(ioredis@5.8.2)
       vue: 3.5.26(typescript@5.9.3)
       vue-bundle-renderer: 2.2.0
       vue-devtools-stub: 0.1.0
@@ -9114,12 +9275,12 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  '@nuxt/ui@4.3.0(1f12d7b45d87aab0e2d5d5654dd3166d)':
+  '@nuxt/ui@4.3.0(e2988fb383c512aa8ac3922ecfd50352)':
     dependencies:
       '@iconify/vue': 5.0.0(vue@3.5.26(typescript@5.9.3))
       '@internationalized/date': 3.10.1
       '@internationalized/number': 3.6.5
-      '@nuxt/fonts': 0.12.1(db0@0.3.4)(idb-keyval@6.2.2)(ioredis@5.8.2)(magicast@0.5.1)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))
+      '@nuxt/fonts': 0.12.1(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(idb-keyval@6.2.2)(ioredis@5.8.2)(magicast@0.5.1)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))
       '@nuxt/icon': 2.1.1(magicast@0.5.1)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue@3.5.26(typescript@5.9.3))
       '@nuxt/kit': 4.2.2(magicast@0.5.1)
       '@nuxt/schema': 4.2.2
@@ -9223,7 +9384,7 @@ snapshots:
       - vite
       - vue
 
-  '@nuxt/vite-builder@4.2.2(@types/node@25.0.3)(eslint@9.39.2(jiti@2.6.1))(lightningcss@1.30.2)(magicast@0.5.1)(nuxt@4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2))(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(vue-tsc@3.2.1(typescript@5.9.3))(vue@3.5.26(typescript@5.9.3))(yaml@2.8.2)':
+  '@nuxt/vite-builder@4.2.2(@types/node@25.0.3)(eslint@9.39.2(jiti@2.6.1))(lightningcss@1.30.2)(magicast@0.5.1)(nuxt@4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3))(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2))(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(vue-tsc@3.2.1(typescript@5.9.3))(vue@3.5.26(typescript@5.9.3))(yaml@2.8.2)':
     dependencies:
       '@nuxt/kit': 4.2.2(magicast@0.5.1)
       '@rollup/plugin-replace': 6.0.3(rollup@4.54.0)
@@ -9243,7 +9404,7 @@ snapshots:
       magic-string: 0.30.21
       mlly: 1.8.0
       mocked-exports: 0.1.1
-      nuxt: 4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2)
+      nuxt: 4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3))(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2)
       pathe: 2.0.3
       pkg-types: 2.3.0
       postcss: 8.5.6
@@ -9616,17 +9777,17 @@ snapshots:
 
   '@remirror/core-constants@3.0.0': {}
 
-  '@reown/appkit-adapter-wagmi@1.8.15(4dd6aca3e26c93fc0ccd19bc4ca44932)':
+  '@reown/appkit-adapter-wagmi@1.8.15(46b25c57ee424b95d707756f3c629af8)':
     dependencies:
-      '@reown/appkit': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)
+      '@reown/appkit': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)
       '@reown/appkit-common': 1.8.15(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
-      '@reown/appkit-controllers': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
+      '@reown/appkit-controllers': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
       '@reown/appkit-polyfills': 1.8.15
-      '@reown/appkit-scaffold-ui': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(valtio@2.1.7(@types/react@19.2.7)(react@18.3.1))(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)
-      '@reown/appkit-utils': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(valtio@2.1.7(@types/react@19.2.7)(react@18.3.1))(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)
+      '@reown/appkit-scaffold-ui': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(valtio@2.1.7(@types/react@19.2.7)(react@18.3.1))(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)
+      '@reown/appkit-utils': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(valtio@2.1.7(@types/react@19.2.7)(react@18.3.1))(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)
       '@reown/appkit-wallet': 1.8.15(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)
       '@wagmi/core': 3.0.2(@tanstack/query-core@5.90.16)(@types/react@19.2.7)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(viem@2.43.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76))
-      '@walletconnect/universal-provider': 2.23.0(bufferutil@4.1.0)(db0@0.3.4)(ioredis@5.8.2)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
+      '@walletconnect/universal-provider': 2.23.0(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
       valtio: 2.1.7(@types/react@19.2.7)(react@18.3.1)
       viem: 2.43.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
       wagmi: 3.1.4(@base-org/account@2.4.0(@types/react@19.2.7)(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76))(@safe-global/safe-apps-provider@0.18.6(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76))(@safe-global/safe-apps-sdk@9.1.0(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76))(@tanstack/query-core@5.90.16)(@tanstack/react-query@5.90.16(react@18.3.1))(@types/react@19.2.7)(react@18.3.1)(typescript@5.9.3)(viem@2.43.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76))
@@ -9695,11 +9856,11 @@ snapshots:
       - utf-8-validate
       - zod
 
-  '@reown/appkit-controllers@1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)':
+  '@reown/appkit-controllers@1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)':
     dependencies:
       '@reown/appkit-common': 1.8.15(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
       '@reown/appkit-wallet': 1.8.15(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)
-      '@walletconnect/universal-provider': 2.23.0(bufferutil@4.1.0)(db0@0.3.4)(ioredis@5.8.2)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
+      '@walletconnect/universal-provider': 2.23.0(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
       valtio: 2.1.7(@types/react@19.2.7)(react@18.3.1)
       viem: 2.43.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
     transitivePeerDependencies:
@@ -9730,12 +9891,12 @@ snapshots:
       - utf-8-validate
       - zod
 
-  '@reown/appkit-pay@1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)':
+  '@reown/appkit-pay@1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)':
     dependencies:
       '@reown/appkit-common': 1.8.15(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
-      '@reown/appkit-controllers': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
-      '@reown/appkit-ui': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
-      '@reown/appkit-utils': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(valtio@2.1.7(@types/react@19.2.7)(react@18.3.1))(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)
+      '@reown/appkit-controllers': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
+      '@reown/appkit-ui': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
+      '@reown/appkit-utils': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(valtio@2.1.7(@types/react@19.2.7)(react@18.3.1))(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)
       lit: 3.3.0
       valtio: 2.1.7(@types/react@19.2.7)(react@18.3.1)
     transitivePeerDependencies:
@@ -9775,12 +9936,12 @@ snapshots:
     dependencies:
       buffer: 6.0.3
 
-  '@reown/appkit-scaffold-ui@1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(valtio@2.1.7(@types/react@19.2.7)(react@18.3.1))(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)':
+  '@reown/appkit-scaffold-ui@1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(valtio@2.1.7(@types/react@19.2.7)(react@18.3.1))(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)':
     dependencies:
       '@reown/appkit-common': 1.8.15(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
-      '@reown/appkit-controllers': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
-      '@reown/appkit-ui': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
-      '@reown/appkit-utils': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(valtio@2.1.7(@types/react@19.2.7)(react@18.3.1))(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)
+      '@reown/appkit-controllers': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
+      '@reown/appkit-ui': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
+      '@reown/appkit-utils': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(valtio@2.1.7(@types/react@19.2.7)(react@18.3.1))(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)
       '@reown/appkit-wallet': 1.8.15(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)
       lit: 3.3.0
     transitivePeerDependencies:
@@ -9817,11 +9978,11 @@ snapshots:
       - ws
       - zod
 
-  '@reown/appkit-ui@1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)':
+  '@reown/appkit-ui@1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)':
     dependencies:
       '@phosphor-icons/webcomponents': 2.1.5
       '@reown/appkit-common': 1.8.15(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
-      '@reown/appkit-controllers': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
+      '@reown/appkit-controllers': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
       '@reown/appkit-wallet': 1.8.15(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)
       lit: 3.3.0
       qrcode: 1.5.3
@@ -9853,15 +10014,15 @@ snapshots:
       - utf-8-validate
       - zod
 
-  '@reown/appkit-utils@1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(valtio@2.1.7(@types/react@19.2.7)(react@18.3.1))(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)':
+  '@reown/appkit-utils@1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(valtio@2.1.7(@types/react@19.2.7)(react@18.3.1))(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)':
     dependencies:
       '@reown/appkit-common': 1.8.15(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
-      '@reown/appkit-controllers': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
+      '@reown/appkit-controllers': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
       '@reown/appkit-polyfills': 1.8.15
       '@reown/appkit-wallet': 1.8.15(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)
       '@wallet-standard/wallet': 1.1.0
       '@walletconnect/logger': 3.0.0
-      '@walletconnect/universal-provider': 2.23.0(bufferutil@4.1.0)(db0@0.3.4)(ioredis@5.8.2)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
+      '@walletconnect/universal-provider': 2.23.0(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
       valtio: 2.1.7(@types/react@19.2.7)(react@18.3.1)
       viem: 2.43.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
     optionalDependencies:
@@ -9912,17 +10073,17 @@ snapshots:
       - typescript
       - utf-8-validate
 
-  '@reown/appkit@1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)':
+  '@reown/appkit@1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)':
     dependencies:
       '@reown/appkit-common': 1.8.15(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
-      '@reown/appkit-controllers': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
-      '@reown/appkit-pay': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)
+      '@reown/appkit-controllers': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
+      '@reown/appkit-pay': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)
       '@reown/appkit-polyfills': 1.8.15
-      '@reown/appkit-scaffold-ui': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(valtio@2.1.7(@types/react@19.2.7)(react@18.3.1))(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)
-      '@reown/appkit-ui': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
-      '@reown/appkit-utils': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4)(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(valtio@2.1.7(@types/react@19.2.7)(react@18.3.1))(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)
+      '@reown/appkit-scaffold-ui': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(valtio@2.1.7(@types/react@19.2.7)(react@18.3.1))(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)
+      '@reown/appkit-ui': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
+      '@reown/appkit-utils': 1.8.15(@types/react@19.2.7)(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(fastestsmallesttextencoderdecoder@1.0.22)(ioredis@5.8.2)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(valtio@2.1.7(@types/react@19.2.7)(react@18.3.1))(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76)
       '@reown/appkit-wallet': 1.8.15(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)
-      '@walletconnect/universal-provider': 2.23.0(bufferutil@4.1.0)(db0@0.3.4)(ioredis@5.8.2)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
+      '@walletconnect/universal-provider': 2.23.0(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
       bs58: 6.0.0
       semver: 7.7.2
       valtio: 2.1.7(@types/react@19.2.7)(react@18.3.1)
@@ -11112,6 +11273,8 @@ snapshots:
 
   '@types/linkify-it@5.0.0': {}
 
+  '@types/luxon@3.7.1': {}
+
   '@types/markdown-it@14.1.2':
     dependencies:
       '@types/linkify-it': 5.0.0
@@ -11141,6 +11304,13 @@ snapshots:
   '@types/parse-path@7.1.0':
     dependencies:
       parse-path: 7.1.0
+
+  '@types/pg@8.16.0':
+    dependencies:
+      '@types/node': 22.19.3
+      pg-protocol: 1.10.3
+      pg-types: 2.2.0
+    optional: true
 
   '@types/pluralize@0.0.33': {}
 
@@ -11521,13 +11691,13 @@ snapshots:
 
   '@vueuse/metadata@14.1.0': {}
 
-  '@vueuse/nuxt@12.8.2(magicast@0.5.1)(nuxt@4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2))(typescript@5.9.3)':
+  '@vueuse/nuxt@12.8.2(magicast@0.5.1)(nuxt@4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3))(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2))(typescript@5.9.3)':
     dependencies:
       '@nuxt/kit': 3.20.2(magicast@0.5.1)
       '@vueuse/core': 12.8.2(typescript@5.9.3)
       '@vueuse/metadata': 12.8.2
       local-pkg: 1.1.2
-      nuxt: 4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2)
+      nuxt: 4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3))(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2)
       vue: 3.5.26(typescript@5.9.3)
     transitivePeerDependencies:
       - magicast
@@ -11611,7 +11781,7 @@ snapshots:
       - react
       - use-sync-external-store
 
-  '@wagmi/vue@0.4.6(bf653179d2ed5df4545afad10602dcf5)':
+  '@wagmi/vue@0.4.6(ec3e60a1042a51c467429bbfe445fc35)':
     dependencies:
       '@tanstack/vue-query': 5.92.5(vue@3.5.26(typescript@5.9.3))
       '@wagmi/connectors': 7.0.5(@base-org/account@2.4.0(@types/react@19.2.7)(bufferutil@4.1.0)(fastestsmallesttextencoderdecoder@1.0.22)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(utf-8-validate@5.0.10)(ws@8.18.3(bufferutil@4.1.0)(utf-8-validate@5.0.10))(zod@3.25.76))(@safe-global/safe-apps-provider@0.18.6(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76))(@safe-global/safe-apps-sdk@9.1.0(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76))(@wagmi/core@3.0.1(@tanstack/query-core@5.90.16)(@types/react@19.2.7)(react@18.3.1)(typescript@5.9.3)(use-sync-external-store@1.4.0(react@18.3.1))(viem@2.43.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)))(typescript@5.9.3)(viem@2.43.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76))
@@ -11619,7 +11789,7 @@ snapshots:
       viem: 2.43.3(bufferutil@4.1.0)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
       vue: 3.5.26(typescript@5.9.3)
     optionalDependencies:
-      nuxt: 4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2)
+      nuxt: 4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3))(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2)
       typescript: 5.9.3
     transitivePeerDependencies:
       - '@base-org/account'
@@ -11642,21 +11812,21 @@ snapshots:
     dependencies:
       '@wallet-standard/base': 1.1.0
 
-  '@walletconnect/core@2.23.0(bufferutil@4.1.0)(db0@0.3.4)(ioredis@5.8.2)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)':
+  '@walletconnect/core@2.23.0(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)':
     dependencies:
       '@walletconnect/heartbeat': 1.2.2
       '@walletconnect/jsonrpc-provider': 1.0.14
       '@walletconnect/jsonrpc-types': 1.0.4
       '@walletconnect/jsonrpc-utils': 1.0.8
       '@walletconnect/jsonrpc-ws-connection': 1.0.16(bufferutil@4.1.0)(utf-8-validate@5.0.10)
-      '@walletconnect/keyvaluestorage': 1.1.1(db0@0.3.4)(ioredis@5.8.2)
+      '@walletconnect/keyvaluestorage': 1.1.1(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)
       '@walletconnect/logger': 3.0.0
       '@walletconnect/relay-api': 1.0.11
       '@walletconnect/relay-auth': 1.1.0
       '@walletconnect/safe-json': 1.0.2
       '@walletconnect/time': 1.0.2
-      '@walletconnect/types': 2.23.0(db0@0.3.4)(ioredis@5.8.2)
-      '@walletconnect/utils': 2.23.0(db0@0.3.4)(ioredis@5.8.2)(typescript@5.9.3)(zod@3.25.76)
+      '@walletconnect/types': 2.23.0(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)
+      '@walletconnect/utils': 2.23.0(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(typescript@5.9.3)(zod@3.25.76)
       '@walletconnect/window-getters': 1.0.1
       es-toolkit: 1.39.3
       events: 3.3.0
@@ -11737,11 +11907,11 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  '@walletconnect/keyvaluestorage@1.1.1(db0@0.3.4)(ioredis@5.8.2)':
+  '@walletconnect/keyvaluestorage@1.1.1(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)':
     dependencies:
       '@walletconnect/safe-json': 1.0.2
       idb-keyval: 6.2.2
-      unstorage: 1.17.3(db0@0.3.4)(idb-keyval@6.2.2)(ioredis@5.8.2)
+      unstorage: 1.17.3(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(idb-keyval@6.2.2)(ioredis@5.8.2)
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -11783,16 +11953,16 @@ snapshots:
     dependencies:
       tslib: 1.14.1
 
-  '@walletconnect/sign-client@2.23.0(bufferutil@4.1.0)(db0@0.3.4)(ioredis@5.8.2)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)':
+  '@walletconnect/sign-client@2.23.0(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)':
     dependencies:
-      '@walletconnect/core': 2.23.0(bufferutil@4.1.0)(db0@0.3.4)(ioredis@5.8.2)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
+      '@walletconnect/core': 2.23.0(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
       '@walletconnect/events': 1.0.1
       '@walletconnect/heartbeat': 1.2.2
       '@walletconnect/jsonrpc-utils': 1.0.8
       '@walletconnect/logger': 3.0.0
       '@walletconnect/time': 1.0.2
-      '@walletconnect/types': 2.23.0(db0@0.3.4)(ioredis@5.8.2)
-      '@walletconnect/utils': 2.23.0(db0@0.3.4)(ioredis@5.8.2)(typescript@5.9.3)(zod@3.25.76)
+      '@walletconnect/types': 2.23.0(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)
+      '@walletconnect/utils': 2.23.0(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(typescript@5.9.3)(zod@3.25.76)
       events: 3.3.0
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -11823,12 +11993,12 @@ snapshots:
     dependencies:
       tslib: 1.14.1
 
-  '@walletconnect/types@2.23.0(db0@0.3.4)(ioredis@5.8.2)':
+  '@walletconnect/types@2.23.0(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)':
     dependencies:
       '@walletconnect/events': 1.0.1
       '@walletconnect/heartbeat': 1.2.2
       '@walletconnect/jsonrpc-types': 1.0.4
-      '@walletconnect/keyvaluestorage': 1.1.1(db0@0.3.4)(ioredis@5.8.2)
+      '@walletconnect/keyvaluestorage': 1.1.1(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)
       '@walletconnect/logger': 3.0.0
       events: 3.3.0
     transitivePeerDependencies:
@@ -11852,18 +12022,18 @@ snapshots:
       - ioredis
       - uploadthing
 
-  '@walletconnect/universal-provider@2.23.0(bufferutil@4.1.0)(db0@0.3.4)(ioredis@5.8.2)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)':
+  '@walletconnect/universal-provider@2.23.0(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)':
     dependencies:
       '@walletconnect/events': 1.0.1
       '@walletconnect/jsonrpc-http-connection': 1.0.8
       '@walletconnect/jsonrpc-provider': 1.0.14
       '@walletconnect/jsonrpc-types': 1.0.4
       '@walletconnect/jsonrpc-utils': 1.0.8
-      '@walletconnect/keyvaluestorage': 1.1.1(db0@0.3.4)(ioredis@5.8.2)
+      '@walletconnect/keyvaluestorage': 1.1.1(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)
       '@walletconnect/logger': 3.0.0
-      '@walletconnect/sign-client': 2.23.0(bufferutil@4.1.0)(db0@0.3.4)(ioredis@5.8.2)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
-      '@walletconnect/types': 2.23.0(db0@0.3.4)(ioredis@5.8.2)
-      '@walletconnect/utils': 2.23.0(db0@0.3.4)(ioredis@5.8.2)(typescript@5.9.3)(zod@3.25.76)
+      '@walletconnect/sign-client': 2.23.0(bufferutil@4.1.0)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(typescript@5.9.3)(utf-8-validate@5.0.10)(zod@3.25.76)
+      '@walletconnect/types': 2.23.0(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)
+      '@walletconnect/utils': 2.23.0(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(typescript@5.9.3)(zod@3.25.76)
       es-toolkit: 1.39.3
       events: 3.3.0
     transitivePeerDependencies:
@@ -11892,7 +12062,7 @@ snapshots:
       - utf-8-validate
       - zod
 
-  '@walletconnect/utils@2.23.0(db0@0.3.4)(ioredis@5.8.2)(typescript@5.9.3)(zod@3.25.76)':
+  '@walletconnect/utils@2.23.0(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)(typescript@5.9.3)(zod@3.25.76)':
     dependencies:
       '@msgpack/msgpack': 3.1.2
       '@noble/ciphers': 1.3.0
@@ -11900,13 +12070,13 @@ snapshots:
       '@noble/hashes': 1.8.0
       '@scure/base': 1.2.6
       '@walletconnect/jsonrpc-utils': 1.0.8
-      '@walletconnect/keyvaluestorage': 1.1.1(db0@0.3.4)(ioredis@5.8.2)
+      '@walletconnect/keyvaluestorage': 1.1.1(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)
       '@walletconnect/logger': 3.0.0
       '@walletconnect/relay-api': 1.0.11
       '@walletconnect/relay-auth': 1.1.0
       '@walletconnect/safe-json': 1.0.2
       '@walletconnect/time': 1.0.2
-      '@walletconnect/types': 2.23.0(db0@0.3.4)(ioredis@5.8.2)
+      '@walletconnect/types': 2.23.0(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(ioredis@5.8.2)
       '@walletconnect/window-getters': 1.0.1
       '@walletconnect/window-metadata': 1.0.1
       blakejs: 1.2.1
@@ -12670,7 +12840,9 @@ snapshots:
 
   dayjs@1.11.19: {}
 
-  db0@0.3.4: {}
+  db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)):
+    optionalDependencies:
+      drizzle-orm: 0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)
 
   debug@4.3.4:
     dependencies:
@@ -12793,6 +12965,13 @@ snapshots:
   dotenv@16.6.1: {}
 
   dotenv@17.2.3: {}
+
+  drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3):
+    optionalDependencies:
+      '@types/pg': 8.16.0
+      knex: 3.1.0(pg@8.16.3)
+      pg: 8.16.3
+    optional: true
 
   dunder-proto@1.0.1:
     dependencies:
@@ -13291,7 +13470,7 @@ snapshots:
       unicode-properties: 1.4.1
       unicode-trie: 2.0.0
 
-  fontless@0.1.0(db0@0.3.4)(idb-keyval@6.2.2)(ioredis@5.8.2)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2)):
+  fontless@0.1.0(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(idb-keyval@6.2.2)(ioredis@5.8.2)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2)):
     dependencies:
       consola: 3.4.2
       css-tree: 3.1.0
@@ -13305,7 +13484,7 @@ snapshots:
       pathe: 2.0.3
       ufo: 1.6.1
       unifont: 0.6.0
-      unstorage: 1.17.3(db0@0.3.4)(idb-keyval@6.2.2)(ioredis@5.8.2)
+      unstorage: 1.17.3(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(idb-keyval@6.2.2)(ioredis@5.8.2)
     optionalDependencies:
       vite: 7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2)
     transitivePeerDependencies:
@@ -13941,10 +14120,10 @@ snapshots:
 
   klona@2.0.6: {}
 
-  knex-dynamic-connection@3.2.0:
+  knex-dynamic-connection@3.2.0(pg@8.16.3):
     dependencies:
       debug: 4.4.3
-      knex: 3.1.0
+      knex: 3.1.0(pg@8.16.3)
     transitivePeerDependencies:
       - better-sqlite3
       - mysql
@@ -13955,7 +14134,7 @@ snapshots:
       - supports-color
       - tedious
 
-  knex@3.1.0:
+  knex@3.1.0(pg@8.16.3):
     dependencies:
       colorette: 2.0.19
       commander: 10.0.0
@@ -13971,6 +14150,8 @@ snapshots:
       resolve-from: 5.0.0
       tarn: 3.0.2
       tildify: 2.0.0
+    optionalDependencies:
+      pg: 8.16.3
     transitivePeerDependencies:
       - supports-color
 
@@ -14155,8 +14336,7 @@ snapshots:
 
   lru-cache@7.18.3: {}
 
-  luxon@3.7.2:
-    optional: true
+  luxon@3.7.2: {}
 
   magic-regexp@0.10.0:
     dependencies:
@@ -14342,7 +14522,7 @@ snapshots:
 
   netmask@2.0.2: {}
 
-  nitropack@2.12.9(idb-keyval@6.2.2):
+  nitropack@2.12.9(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3))(idb-keyval@6.2.2):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.4.1
       '@rollup/plugin-alias': 5.1.1(rollup@4.54.0)
@@ -14363,7 +14543,7 @@ snapshots:
       cookie-es: 2.0.0
       croner: 9.1.0
       crossws: 0.3.5
-      db0: 0.3.4
+      db0: 0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3))
       defu: 6.1.4
       destr: 2.0.5
       dot-prop: 10.1.0
@@ -14409,7 +14589,7 @@ snapshots:
       unenv: 2.0.0-rc.24
       unimport: 5.6.0
       unplugin-utils: 0.3.1
-      unstorage: 1.17.3(db0@0.3.4)(idb-keyval@6.2.2)(ioredis@5.8.2)
+      unstorage: 1.17.3(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(idb-keyval@6.2.2)(ioredis@5.8.2)
       untyped: 2.0.0
       unwasm: 0.3.11
       youch: 4.1.0-beta.13
@@ -14515,16 +14695,16 @@ snapshots:
     dependencies:
       boolbase: 1.0.0
 
-  nuxt@4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2):
+  nuxt@4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3))(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2):
     dependencies:
       '@dxup/nuxt': 0.2.2(magicast@0.5.1)
       '@nuxt/cli': 3.31.3(cac@6.7.14)(magicast@0.5.1)
       '@nuxt/devtools': 3.1.1(bufferutil@4.1.0)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue@3.5.26(typescript@5.9.3))
       '@nuxt/kit': 4.2.2(magicast@0.5.1)
-      '@nuxt/nitro-server': 4.2.2(db0@0.3.4)(idb-keyval@6.2.2)(ioredis@5.8.2)(magicast@0.5.1)(nuxt@4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2))(typescript@5.9.3)
+      '@nuxt/nitro-server': 4.2.2(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3))(idb-keyval@6.2.2)(ioredis@5.8.2)(magicast@0.5.1)(nuxt@4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3))(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2))(typescript@5.9.3)
       '@nuxt/schema': 4.2.2
       '@nuxt/telemetry': 2.6.6(magicast@0.5.1)
-      '@nuxt/vite-builder': 4.2.2(@types/node@25.0.3)(eslint@9.39.2(jiti@2.6.1))(lightningcss@1.30.2)(magicast@0.5.1)(nuxt@4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4)(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2))(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(vue-tsc@3.2.1(typescript@5.9.3))(vue@3.5.26(typescript@5.9.3))(yaml@2.8.2)
+      '@nuxt/vite-builder': 4.2.2(@types/node@25.0.3)(eslint@9.39.2(jiti@2.6.1))(lightningcss@1.30.2)(magicast@0.5.1)(nuxt@4.2.2(@parcel/watcher@2.5.1)(@types/node@25.0.3)(@vue/compiler-sfc@3.5.26)(bufferutil@4.1.0)(cac@6.7.14)(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3))(eslint@9.39.2(jiti@2.6.1))(idb-keyval@6.2.2)(ioredis@5.8.2)(lightningcss@1.30.2)(magicast@0.5.1)(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(utf-8-validate@5.0.10)(vite@7.3.0(@types/node@25.0.3)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.2))(vue-tsc@3.2.1(typescript@5.9.3))(yaml@2.8.2))(optionator@0.9.4)(rollup@4.54.0)(terser@5.44.1)(typescript@5.9.3)(vue-tsc@3.2.1(typescript@5.9.3))(vue@3.5.26(typescript@5.9.3))(yaml@2.8.2)
       '@unhead/vue': 2.1.1(vue@3.5.26(typescript@5.9.3))
       '@vue/shared': 3.5.26
       c12: 3.3.3(magicast@0.5.1)
@@ -14982,7 +15162,42 @@ snapshots:
 
   perfect-debounce@2.0.0: {}
 
+  pg-cloudflare@1.2.7:
+    optional: true
+
   pg-connection-string@2.6.2: {}
+
+  pg-connection-string@2.9.1: {}
+
+  pg-int8@1.0.1: {}
+
+  pg-pool@3.10.1(pg@8.16.3):
+    dependencies:
+      pg: 8.16.3
+
+  pg-protocol@1.10.3: {}
+
+  pg-types@2.2.0:
+    dependencies:
+      pg-int8: 1.0.1
+      postgres-array: 2.0.0
+      postgres-bytea: 1.0.1
+      postgres-date: 1.0.7
+      postgres-interval: 1.2.0
+
+  pg@8.16.3:
+    dependencies:
+      pg-connection-string: 2.9.1
+      pg-pool: 3.10.1(pg@8.16.3)
+      pg-protocol: 1.10.3
+      pg-types: 2.2.0
+      pgpass: 1.0.5
+    optionalDependencies:
+      pg-cloudflare: 1.2.7
+
+  pgpass@1.0.5:
+    dependencies:
+      split2: 4.2.0
 
   picocolors@1.0.1: {}
 
@@ -15227,6 +15442,16 @@ snapshots:
       nanoid: 3.3.11
       picocolors: 1.1.1
       source-map-js: 1.2.1
+
+  postgres-array@2.0.0: {}
+
+  postgres-bytea@1.0.1: {}
+
+  postgres-date@1.0.7: {}
+
+  postgres-interval@1.2.0:
+    dependencies:
+      xtend: 4.0.2
 
   preact@10.24.2:
     optional: true
@@ -16400,7 +16625,7 @@ snapshots:
       picomatch: 4.0.3
       webpack-virtual-modules: 0.6.2
 
-  unstorage@1.17.3(db0@0.3.4)(idb-keyval@6.2.2)(ioredis@5.8.2):
+  unstorage@1.17.3(db0@0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3)))(idb-keyval@6.2.2)(ioredis@5.8.2):
     dependencies:
       anymatch: 3.1.3
       chokidar: 4.0.3
@@ -16411,7 +16636,7 @@ snapshots:
       ofetch: 1.5.1
       ufo: 1.6.1
     optionalDependencies:
-      db0: 0.3.4
+      db0: 0.3.4(drizzle-orm@0.45.1(@types/pg@8.16.0)(knex@3.1.0(pg@8.16.3))(pg@8.16.3))
       idb-keyval: 6.2.2
       ioredis: 5.8.2
 
@@ -16757,6 +16982,8 @@ snapshots:
   wsl-utils@0.1.0:
     dependencies:
       is-wsl: 3.1.0
+
+  xtend@4.0.2: {}
 
   y-protocols@1.0.7(yjs@13.6.28):
     dependencies:

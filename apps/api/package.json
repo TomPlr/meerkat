@@ -11,7 +11,13 @@
     "test": "node ace test",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "db:migrate": "node ace migration:run",
+    "db:migrate:rollback": "node ace migration:rollback",
+    "db:migrate:fresh": "node ace migration:fresh",
+    "db:seed": "node ace db:seed",
+    "db:make:migration": "node ace make:migration",
+    "db:make:model": "node ace make:model"
   },
   "imports": {
     "#controllers/*": "./app/controllers/*.js",
@@ -29,7 +35,14 @@
     "#database/*": "./database/*.js",
     "#start/*": "./start/*.js",
     "#tests/*": "./tests/*.js",
-    "#config/*": "./config/*.js"
+    "#config/*": "./config/*.js",
+    "#adapters/*": "./app/adapters/*.js",
+    "#repositories/*": "./app/repositories/*.js",
+    "#use-cases/*": "./app/use-cases/*.js",
+    "#ports/*": "./app/ports/*.js",
+    "#event-bus/*": "./app/event-bus/*.js",
+    "#app/*": "./app/*.js",
+    "#domain/*": "./app/domain/*.js"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^7.8.2",
@@ -41,6 +54,7 @@
     "@japa/plugin-adonisjs": "^4.0.0",
     "@japa/runner": "^4.2.0",
     "@swc/core": "1.11.24",
+    "@types/luxon": "^3.7.1",
     "@types/node": "^22.15.18",
     "eslint": "^9.26.0",
     "hot-hook": "^0.4.0",
@@ -55,6 +69,8 @@
     "@adonisjs/cors": "^2.2.1",
     "@adonisjs/lucid": "^21.6.1",
     "@vinejs/vine": "^3.0.1",
+    "luxon": "^3.7.2",
+    "pg": "^8.16.3",
     "reflect-metadata": "^0.2.2"
   },
   "hotHook": {
